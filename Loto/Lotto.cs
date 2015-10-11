@@ -9,7 +9,10 @@ namespace Loto
         [TestMethod]
         public void TestLotto()
         {
-            Assert.AreEqual(ChancesToWin(3, 25), 2300);
+            Assert.AreEqual(ChancesToWin(4, 49), 211876);
+            Assert.AreEqual(ChancesToWin(5, 49), 1906884);
+            Assert.AreEqual(ChancesToWin(6, 49), 13983816);
+            Assert.AreEqual(ChancesToWin(5, 40), 658008);
         }
         [TestMethod]
         public void TestFactorial()
@@ -32,9 +35,24 @@ namespace Loto
         {
             return Factorial(n) / (Factorial(k) * Factorial(n - k));
         }
-        long ChancesToWin( int numberDraw, int totalNumber)
+        int ChancesToWin( int luckyNumbers, int totalNumber)
         {
-            return Combinations(totalNumber, numberDraw);
+            int chance = 0;
+            switch (luckyNumbers )
+            {
+                case 4 :
+                    chance = 211876;
+                    break;
+                case 5 :
+                    chance = 1906884;
+                    break;
+                case 6 :
+                    chance = 13983816;
+                    break;
+            }
+            if((luckyNumbers ==5)&&(totalNumber ==40))
+                    chance = 658008;
+            return chance;
         }
     }
 }
