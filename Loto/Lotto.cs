@@ -22,7 +22,7 @@ namespace Loto
         {
             int i;
             int factorial = 1 ;
-            for (i = 1; i <= number; i++)
+            for (i = 1; i <= number; i++ )
             {
                 factorial = factorial * i;
             }
