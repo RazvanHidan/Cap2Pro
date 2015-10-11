@@ -21,7 +21,7 @@ namespace Loto
         long Factorial(int number)
         {
             int i;
-            int factorial = 1;
+            int factorial = 1 ;
             for (i = 1; i <= number; i++)
             {
                 factorial = factorial * i;
