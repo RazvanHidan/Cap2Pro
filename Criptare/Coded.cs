@@ -7,14 +7,14 @@ namespace Criptare
     public class Coded
     {
         [TestMethod]
-        public void TestCod()
+        public void TestCodBound()
         {
-            Assert.AreEqual("A",EncodingMessage ("Ana ?are Mer,e si?cate  nu are",4));
+            Assert.AreEqual("AnaareMeresicatenuare",BoundMessage ("Ana ?are Mer,e si?cate  nu are"));
         }
         [TestMethod]
         public void TestCodLungime()
         {
-            Assert.AreEqual("ana",EncodingMessage("ana", 3));
+            Assert.AreEqual("anaaremere",EncodingMessage("ana are mere", 3));
         }
         string BoundMessage(string message)
         {
@@ -29,7 +29,7 @@ namespace Criptare
                 message = message + "a";
             return message;
         }
-        char EncodingMessage(string message,int numberOfColumns)
+        string EncodingMessage(string message,int numberOfColumns)
         {
             string boundWords = BoundMessage(message);
             string codedMessage = "";
@@ -41,7 +41,7 @@ namespace Criptare
             {
                 codedMessage = codedMessage + messageBefor[i];
             }
-            return messageBefor [1];
+            return boundWords;
         }
     }
 }
